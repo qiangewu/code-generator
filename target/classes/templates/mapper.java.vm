@@ -1,52 +1,7 @@
 package ${package.Mapper};
 
-import ${package.Mapper}.base.BaseMapper;
+import ${package.Mapper}.base.BaseDao;
 import ${package.DTO}.${entity}DTO;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import com.github.pagehelper.Page;
-import com.crc.mam.dto.base.CommonPageDTO;
-import com.github.pagehelper.PageHelper;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 
-public interface ${entity}Mapper extends BaseMapper<${entity}DTO> {
-    private ${entity}Dao ${table.entityLowerCaseName}Dao;
-
-    public ${entity}DTO getById(String id) {
-        return ${table.entityLowerCaseName}Dao.getById(id);
-    }
-
-    public int insert(${entity}DTO t) {
-        return ${table.entityLowerCaseName}Dao.insert(t);
-    }
-
-    public int deleteById(String id) {
-        return ${table.entityLowerCaseName}Dao.deleteById(id);
-    }
-
-    public int deleteBatch(List<String> list) {
-        return ${table.entityLowerCaseName}Dao.deleteBatch(list);
-    }
-
-    public int update(${entity}DTO t) {
-        return ${table.entityLowerCaseName}Dao.update(t);
-    }
-
-    public int getTotal(${entity}DTO t) throws Exception {
-        return 0;
-    }
-
-    public CommonPageDTO findPage(${entity}DTO t) {
-        CommonPageDTO commonPage=t.getCommonPageDTO();
-        Page<?> page=PageHelper.startPage(commonPage.getCurrentPage(), commonPage.getPageSize());
-        commonPage.setRecordList(this.findList(t));
-        commonPage.initiatePage(page.getTotal());
-        return commonPage;
-    }
-
-    public List<${entity}DTO> findList(${entity}DTO t) {
-        return ${table.entityLowerCaseName}Dao.findList(t);
-    }
+public interface ${entity}Dao extends BaseDao<${entity}DTO> {
 }

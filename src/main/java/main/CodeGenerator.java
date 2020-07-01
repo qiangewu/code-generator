@@ -95,15 +95,15 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(null);  //所属模块
-        pc.setParent("root"); // 自定义包路径
+        pc.setParent("com.sgies.timer.chargeDateProcess.processTask"); // 自定义包路径
         pc.setController("qmm"); // 控制器包名，默认 web
-        pc.setServiceImpl("base.dao"); // service包名，默认service.impl
-        pc.setService("base.service");//service interface包名，默认service
-        pc.setEntity("base.entity");
+        pc.setServiceImpl("dao"); // service包名，默认service.impl
+        pc.setService("service");//service interface包名，默认service
+        pc.setEntity("entity");
         pc.setJs("web.js");
-        pc.setDto("base.dto");
-        pc.setXml("dao");
-        pc.setMapper("dao");
+        pc.setDto("dto");
+        pc.setXml("dao.hlhtDao");
+        pc.setMapper("dao.hlhtDao");
         mpg.setPackageInfo(pc);
 
 

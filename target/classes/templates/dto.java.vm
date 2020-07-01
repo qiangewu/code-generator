@@ -1,5 +1,6 @@
 package ${package.DTO};
 
+import lombok.Data;
 import io.swagger.annotations.ApiModel;
 import ${package.Entity}.${entity};
 /**
@@ -9,6 +10,7 @@ import ${package.Entity}.${entity};
  * @since ${date}
  *
  */
+@Data
 @ApiModel(description="$!{table.comment}")
 public class ${entity}DTO extends ${entity} {
 	
