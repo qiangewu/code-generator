@@ -23,7 +23,7 @@ import generator.config.rules.NamingStrategy;
 /**
  * 代码生成器演示
  */
-public class MamsGenerator {
+public class CodeGenerator {
 
     /**
      * 生成演示
@@ -33,7 +33,7 @@ public class MamsGenerator {
         Properties props = getProperties();
         AutoGenerator mpg = new AutoGenerator();
 
-        String outputDir = "C:\\Project\\Crcement_Project\\trunk\\code\\QMS\\generatedFile";//此文件夹会生成到D:目录下
+        String outputDir = "C:\\Users\\zhangyang\\Desktop\\temp\\mybatis";//此文件夹会生成到D:目录下
         //String viewOutputDir = outputDir + "/view/";
 
         // 全局配置
@@ -46,16 +46,17 @@ public class MamsGenerator {
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
         gc.setXmlName("%sDao");
         gc.setServiceName("%sService");
-        gc.setServiceImplName("%sServiceImpl");
+//        gc.setServiceImplName("%sServiceImpl");
+        gc.setServiceImplName("%sServiceDao");
         gc.setControllerName("%sController");
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-//        dsc.setDbType(DbType.MYSQL);
-        dsc.setDbType(DbType.ORACLE);
-//        dsc.setTypeConvert(new MySqlTypeConvert());
-        dsc.setTypeConvert(new OracleTypeConvert());
+//        dsc.setDbType(DbType.ORACLE);
+//        dsc.setTypeConvert(new OracleTypeConvert());
+        dsc.setDbType(DbType.MYSQL);
+        dsc.setTypeConvert(new MySqlTypeConvert());
         dsc.setDriverName(props.getProperty("db.jdbc.driver"));
         dsc.setUsername(props.getProperty("db.user"));
         dsc.setPassword(props.getProperty("db.password"));
@@ -68,10 +69,11 @@ public class MamsGenerator {
         // strategy.setDbColumnUnderline(true);//全局下划线命名
 //		strategy.setTablePrefix(new String[] { "bmd_", "mp_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"T_USER_INFO"}); // 需要生成的表
+        strategy.setInclude(new String[]{"a_build"}); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除需要生成的表
         // 自定义实体父类
-        strategy.setSuperEntityClass("com.touchspring.pess.base.entity.BaseEntity");
+//        strategy.setSuperEntityClass("com.sgies.timer.chargeDateProcess.processTask.entity.BaseEntity");
+
         // 自定义实体，公共字段
         // strategy.setSuperEntityColumns(new String[] { "test_id", "age" });
         // 自定义 mapper 父类
@@ -81,7 +83,7 @@ public class MamsGenerator {
         // 自定义 service 实现类父类
         // strategy.setSuperServiceImplClass("com.touchspring.pess.TestServiceImpl");
         // 自定义 controller 父类
-        strategy.setSuperControllerClass("com.touchspring.pess.controller.base.BaseController");
+        strategy.setSuperControllerClass("com.sgies.timer.chargeDateProcess.processTask.controller.BaseController");
         // 【实体】是否生成字段常量（默认 false）
         // public static final String ID = "test_id";
         // strategy.setEntityColumnConstant(true);
@@ -93,7 +95,7 @@ public class MamsGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(null);  //所属模块
-        pc.setParent("com.touchspring.pess"); // 自定义包路径
+        pc.setParent("root"); // 自定义包路径
         pc.setController("qmm"); // 控制器包名，默认 web
         pc.setServiceImpl("base.dao"); // service包名，默认service.impl
         pc.setService("base.service");//service interface包名，默认service

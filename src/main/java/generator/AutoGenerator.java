@@ -122,7 +122,11 @@ public class AutoGenerator extends AbstractGenerator {
             }
             if (tableInfo.isConvert()) {
                 // 表注解
-                tableInfo.setImportPackages("javax.persistence.Entity");
+//                tableInfo.setImportPackages("javax.persistence.Entity");
+                tableInfo.setImportPackages("com.fasterxml.jackson.annotation.JsonIgnoreProperties");
+                tableInfo.setImportPackages("io.swagger.annotations.ApiModel");
+                tableInfo.setImportPackages("io.swagger.annotations.ApiModelProperty");
+                tableInfo.setImportPackages("lombok.Data");
             }
             if (StringUtils.isNotEmpty(config.getSuperEntityClass())) {
                 // 父实体

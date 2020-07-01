@@ -192,7 +192,7 @@ public class TableInfo {
                 if (field.isKeyFlag()) {
                     // 主键
                     if (field.isConvert() || field.isKeyIdentityFlag()) {
-                        pkgSet.add("javax.persistence.Id");
+//                        pkgSet.add("javax.persistence.Id");
                     }
                     // 自增
                     /*if (field.isKeyIdentityFlag()) {
@@ -200,7 +200,7 @@ public class TableInfo {
                     }*/
                 } else if (field.isConvert()) {
                     // 普通字段
-                    pkgSet.add("javax.persistence.Column");
+//                    pkgSet.add("javax.persistence.Column");
                 }
             }
             if (!pkgSet.isEmpty()) {
