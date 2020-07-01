@@ -1,0 +1,7 @@
+package com.sgies.timer.chargeDateProcess.processTask.dao.hlhtDao;
+
+import com.sgies.timer.chargeDateProcess.processTask.dao.hlhtDao.base.BaseDao;
+import ${package.DTO}.${entity}DTO;
+
+public interface ${entity}Dao extends BaseDao<${entity}DTO> {
+}

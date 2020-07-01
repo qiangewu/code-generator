@@ -1,7 +1,0 @@
-package ${package.Mapper};
-
-import ${package.Mapper}.base.BaseDao;
-import ${package.DTO}.${entity}DTO;
-
-public interface ${entity}Dao extends BaseDao<${entity}DTO> {
-}

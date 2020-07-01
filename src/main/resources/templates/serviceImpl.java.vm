@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ${package.DTO}.${entity}DTO;
 import ${package.Entity}.${entity};
 import ${package.Service}.${entity}Service;
-import ${package.Mapper}.${entity}Mapper;
+import ${package.Mapper}.${entity}Dao;
 import com.alibaba.dubbo.config.annotation.Service;
 
 /**
@@ -24,31 +24,31 @@ import com.alibaba.dubbo.config.annotation.Service;
 public class ${entity}ServiceImpl implements ${entity}Service {
 
 	@Autowired
-	private ${entity}Mapper ${table.entityLowerCaseName}Mapper;
+	private ${entity}Dao ${table.entityLowerCaseName}Dao;
 
 	@Override
 	public ${entity}DTO getById(String id) {
-		return ${table.entityLowerCaseName}Mapper.getById(id);
+		return ${table.entityLowerCaseName}Dao.getById(id);
 	}
 
 	@Override
 	public int insert(${entity}DTO t) {
-		return ${table.entityLowerCaseName}Mapper.insert(t);
+		return ${table.entityLowerCaseName}Dao.insert(t);
 	}
 
 	@Override
 	public int deleteById(String id) {
-		return ${table.entityLowerCaseName}Mapper.deleteById(id);
+		return ${table.entityLowerCaseName}Dao.deleteById(id);
 	}
 
 	@Override
 	public int deleteBatch(List<String> list) {
-		return ${table.entityLowerCaseName}Mapper.deleteBatch(list);
+		return ${table.entityLowerCaseName}Dao.deleteBatch(list);
 	}
 
 	@Override
 	public int update(${entity}DTO t) {
-		return ${table.entityLowerCaseName}Mapper.update(t);
+		return ${table.entityLowerCaseName}Dao.update(t);
 	}
 
     @Override
@@ -67,7 +67,7 @@ public class ${entity}ServiceImpl implements ${entity}Service {
 
 	@Override
 	public List<${entity}DTO> findList(${entity}DTO t) {
-		return ${table.entityLowerCaseName}Mapper.findList(t);
+		return ${table.entityLowerCaseName}Dao.findList(t);
 	}
 	
 }

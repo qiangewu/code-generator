@@ -97,7 +97,7 @@ public class CodeGenerator {
         pc.setModuleName(null);  //所属模块
         pc.setParent("com.sgies.timer.chargeDateProcess.processTask"); // 自定义包路径
         pc.setController("qmm"); // 控制器包名，默认 web
-        pc.setServiceImpl("dao"); // service包名，默认service.impl
+        pc.setServiceImpl("impl"); // service包名，默认service.impl
         pc.setService("service");//service interface包名，默认service
         pc.setEntity("entity");
         pc.setJs("web.js");

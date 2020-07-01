@@ -15,7 +15,7 @@ public class ConstVal {
     public static final String ENTITY = "Entity";
     public static final String SERIVCE = "Service";
     public static final String SERVICEIMPL = "ServiceImpl";
-    public static final String MAPPER = "Mapper";
+    public static final String MAPPER = "Dao";
     public static final String XML = "Xml";
     public static final String CONTROLLER = "Controller";
     public static final String JS = "JS";
@@ -43,7 +43,7 @@ public class ConstVal {
 
     public static final String TEMPLATE_ENTITY = "/templates/entity.java.vm";
     public static final String TEMPLATE_DTO = "/templates/dto.java.vm";
-    public static final String TEMPLATE_MAPPER = "/templates/mapper.java.vm";
+    public static final String TEMPLATE_MAPPER = "/templates/dao.java.vm";
     public static final String TEMPLATE_XML = "/templates/sqlMap.xml.vm";
     public static final String TEMPLATE_BASE_SERVICE = "/templates/baseService.java.vm";
 

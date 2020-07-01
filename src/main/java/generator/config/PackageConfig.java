@@ -35,7 +35,7 @@ public class PackageConfig {
     /**
      * Mapper包名
      */
-    private String mapper = "mapper";
+    private String mapper = "dao";
 
     /**
      * Mapper XML包名
