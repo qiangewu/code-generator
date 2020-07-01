@@ -11,12 +11,15 @@ import ${pkg};
  * @since ${date}
  */
 #if(${table.convert})
-@Entity(name="${table.name}")
+##@Entity(name="${table.name}")
+@Data
+@ApiModel("$!{table.comment}")
+@JsonIgnoreProperties(ignoreUnknown = true)
 #end
 #if(${superEntityClass})
-public class ${entity} extends ${superEntityClass}#if(${activeRecord})<${entity}>#end {
+public class ${entity} #if(${activeRecord})<${entity}>#end {
 #else
-public class ${entity} extends BaseEntity implements Serializable {
+public class ${entity} implements Serializable {
 #end
 
     private static final long serialVersionUID = 1L;
@@ -31,37 +34,39 @@ public class ${entity} extends BaseEntity implements Serializable {
      */
 #end
 #if(${field.keyFlag})
-	@Id
-	@Column(name="${field.name}")
+##	@Id
+##	@Column(name="${field.name}")
+	@ApiModelProperty("${field.comment}")
 #elseif(${field.convert})
-	@Column(name = "${field.name}")
+##	@Column(name = "${field.name}")
+	@ApiModelProperty("${field.comment}")
 #end
 	private ${field.propertyType} ${field.propertyName};
 #end
-
-#foreach($field in ${table.fields})
-#if(${field.propertyType.equals("Boolean")})
-#set($getprefix="is")
-#else
-#set($getprefix="get")
-#end
-
-	public ${field.propertyType} ${getprefix}${field.capitalName}() {
-		return ${field.propertyName};
-	}
-
-#if(${entityBuilderModel})
-	public ${entity} set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
-#else
-	public void set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
-#end
-		this.${field.propertyName} = ${field.propertyName};
-#if(${entityBuilderModel})
-		return this;
-#end
-	}
-#end
-
+##
+###foreach($field in ${table.fields})
+###if(${field.propertyType.equals("Boolean")})
+###set($getprefix="is")
+###else
+###set($getprefix="get")
+###end
+##
+##	public ${field.propertyType} ${getprefix}${field.capitalName}() {
+##		return ${field.propertyName};
+##	}
+##
+###if(${entityBuilderModel})
+##	public ${entity} set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
+###else
+##	public void set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
+###end
+##		this.${field.propertyName} = ${field.propertyName};
+###if(${entityBuilderModel})
+##		return this;
+###end
+##	}
+###end
+##
 #if(${entityColumnConstant})
 #foreach($field in ${table.fields})
 	public static final String ${field.name.toUpperCase()} = "${field.name}";
